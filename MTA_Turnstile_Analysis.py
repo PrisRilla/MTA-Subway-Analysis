@@ -1,4 +1,7 @@
-# request
+import urllib
+import pandas as pd
+import numpy as np
+import re
 import requests
 from bs4 import BeautifulSoup
 url='http://web.mta.info/developers/turnstile.html'
@@ -11,7 +14,6 @@ for u in soup.find_all('a'):
     print (u.get('href'))
 
 # create list of urls containing txt data
-import re
 base_url='http://web.mta.info/developers/'
 links=[]
 
@@ -28,11 +30,6 @@ print (year_2013)
 len(year_2013)
 print (*year_2013, sep='\n')
 
-
-# creating dataframe
-import urllib
-import pandas as pd
-import numpy as np
 
 # preview
 df1 = pd.read_csv(year_2013[-1], header=None)
@@ -54,17 +51,13 @@ for file in year_2013:
         total_records += (new_records)
 df=pd.DataFrame(total_records, columns=["C/A","UNIT","SCP","DATE","TIME","DESC","ENTRIES","EXITS"])
 
-#Get rid of leading zeros for Exits Column
+# Get rid of leading zeros for Exits Column
 df.head(100)
 df.shape #(203114, 8)
 df.sort_values(by='DATE')
-
-x=df.to_csv(r'C:\Users\PrisR\Two Sigma\MTA_Turnstile.csv')
+x=df.to_csv(r'./MTA_Turnstile.csv')
 type(df.DATE[0])
 print (df.DATE[0])
-
-#reindex
-#groupby5
 print(year_2013)
 
 # first_three = [a,b,c]
@@ -83,7 +76,7 @@ print(year_2013)
 
 #############################################################
 # Which station has the most number of units?
-# Wall Street
+# Answer: Wall Street
 df.loc[:,'UNIT'].mode()  #R043
 df.UNIT.value_counts().idxmax() #R043
 df.UNIT.value_counts().max()  #253221 occurrences
@@ -96,19 +89,5 @@ df.tail(10)
 df.index = df['DT']
 del df['DT']
 df['2013']
-
-
 df['2013'].ENTRIES.resample('M').sum()
 df['2013'].EXITS.resample('M').sum()
-
-
-# Let’s define the busy-ness as sum of entry & exit count. What station was the busiest on February 1, 2013? What turnstile was the busiest on that date?
-
-# What stations have seen the most usage growth/decline in 2013?
-
-# What dates are the least busy? Could you identify days on which stations were not operating at full capacity or closed entirely?
-
-# Bonus:  What hour is the busiest for station CANAL ST in Q1 2013?
-
-
-
