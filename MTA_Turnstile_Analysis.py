@@ -4,6 +4,7 @@ import numpy as np
 import re
 import requests
 from bs4 import BeautifulSoup
+
 url='http://web.mta.info/developers/turnstile.html'
 r=requests.get(url)
 soup = BeautifulSoup(r.text, 'html.parser')
@@ -19,25 +20,25 @@ links=[]
 
 for u in soup.find_all('a', attrs={'href': re.compile("^data")}):
     links.append(base_url+u.get('href'))
-print (*links, sep='\n')
+print (*links[10], sep='\n')
 
 # specify data sets for year 2013
-year_2013=[]
+year_2020=[]
 for link in range(len(links)):
     if '_13' in links[link]:
-        year_2013+=[links[link]]
-print (year_2013)
-len(year_2013)
-print (*year_2013, sep='\n')
+        year_2020+=[links[link]]
+
+print(len(year_2020))
+print (*year_2020, sep='\n')
 
 
 # preview
-df1 = pd.read_csv(year_2013[-1], header=None)
+df1 = pd.read_csv(year_2020[-1])
 df1
 
 # creating data set
 total_records = []
-for file in year_2013:
+for file in year_2020:
     with urllib.request.urlopen(file) as response:
         new_records = []
         for line in response:
