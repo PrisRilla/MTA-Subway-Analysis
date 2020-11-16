@@ -7,7 +7,9 @@ New Yorkers spend a significant amount of their lives riding the MTA. This proje
 
 ## Data Source
 Data is scraped from [MTA Website's Turnstile Data.](http://web.mta.info/developers/turnstile.html)  
-The focus of the analysis is to compare passenger behavior pre and post Covid-19 quarantine. For this purpose, we will look at 2020's turnstile data vs 2019's data.
+The focus of the analysis is to compare passenger behavior pre and post Covid-19 quarantine. For this purpose, we will examine 2020's turnstile data. Please note the following:
+ - The first case of Covid-19 confirmed on 3/1/2020  
+ - Closing of non-essential businesses was announced March 20, 2020  
 
 ## Column Information
 ```
