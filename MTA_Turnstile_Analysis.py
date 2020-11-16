@@ -62,12 +62,15 @@ df.shape # 9556799 rows x 11 columns
 
 # Convert Columns' Data Types
 df['DATE']=pd.to_datetime(df['DATE'])
+df['DATE']=df['DATE'].dt.tz_localize('US/Eastern')
+df.sort_values(by='DATE')
+
 df['EXITS']=df['EXITS'].astype('int64')
 df['ENTRIES']=df['ENTRIES'].astype('int64')
 df.dtypes
 
-df.sort_values(by='DATE')
-df['DATE'].unique()
+
+
 
 # Station with the most number of units
 
