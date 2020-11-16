@@ -5,6 +5,9 @@ import requests
 from bs4 import BeautifulSoup
 
 
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 1000)
+
 url='http://web.mta.info/developers/turnstile.html'
 r=requests.get(url)
 soup=BeautifulSoup(r.text, 'html.parser')
@@ -63,6 +66,9 @@ df['EXITS']=df['EXITS'].astype('int64')
 df['ENTRIES']=df['ENTRIES'].astype('int64')
 df.dtypes
 
-# df.sort_values(by='DATE')
-# print(df['DATE'].unique())
-df.head(10)
+df.sort_values(by='DATE')
+df['DATE'].unique()
+
+# Station with the most number of units
+
+# Total number of entries & exits across the subway system as of 2020
