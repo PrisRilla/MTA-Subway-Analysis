@@ -11,6 +11,16 @@ The focus of the analysis is to compare passenger behavior pre and post Covid-19
  - The first case of Covid-19 confirmed on 3/1/2020  
  - Closing of non-essential businesses was announced March 20, 2020  
 
+## Project Structure
+```
+|--src/
+    |---notebooks/          | Misc jupyter nbs for experimentation
+    |---scrape_data.py      | Module for scraping data sets and creating dataframe
+    |---analyze_data.py     | File used for performing analyses
+|--.gitignore
+|--README.md
+```
+
 ## Column Information
 ```
 C/A      = Control Area (A002)
