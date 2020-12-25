@@ -19,6 +19,7 @@ The focus of the analysis is to compare passenger behavior pre and post Covid-19
     |---analyze_data.py     | File used for performing analyses
 |--.gitignore
 |--README.md
+|--Remote-Booth-Station-Info.numbers | Descriptive information for stations
 ```
 
 ## Column Information
